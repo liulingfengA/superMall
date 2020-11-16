@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>  
+// 必须传入可迭代对象 , 也可以理解成可遍历对象 就是一个数组
+Promise.all([
+  new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      resolve('结果1')
+    },2000)
+  }),
+  new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      resolve('结果2')
+    },1000)
+  })
+]).then(results =>{
+  console.log(results)
+  console.log(results[0])
+})
+
+</script>
+</html>

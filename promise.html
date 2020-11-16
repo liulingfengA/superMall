@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+console.log("111")
+setTimeout(()=>{
+console.log("hello,world")
+},1000)
+
+
+
+
+new Promise((resolve,reject)=>{
+  setTimeout(()=>{
+    resolve()
+  },1000)
+}).then(()=>{
+  console.log("111")
+  return new Promise((resolve,reject)=>{  
+      setTimeout(()=>{
+        resolve()
+      },1000)
+  }).then(()=>{
+      console.log("222")
+      return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+          resolve()
+        },1000)
+      }).then(()=>{
+        console.log("333")
+        
+      })
+    })
+
+})
+
+// promise 可以在then里面传入第二个参数 , 跟catch是一样的效果
+new Promise((resolve, reject)=>{
+  resolve("ok")
+  reject("error")
+}).then((data)=>{ 
+  console.log(data)
+},(err)=>{
+  console.log(err)
+}
+)
+
+// promise 链式调用 和简写 (promise.resolve)和 直接return结果 (promise会自动处理) 
+new Promise((resolve, reject)=>{
+  setTimeout(()=>{
+    resolve('aaa')
+  },1000)
+}).then((data)=>{
+  let content1 = data+ '111'
+  return  Promise.resolve(content1)
+  }).then((content1)=>{
+    let content2 = content1+ '2222'
+    console.log(content2)
+    return content2
+  }).then((content2)=>{
+    console.log(content2+'333')
+  })    
+
+</script>
+</html>
