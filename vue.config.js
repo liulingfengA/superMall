@@ -7,7 +7,9 @@ module.exports ={
         "assets":"@/assets",
         "components":"@/components",
         "views":"@/views",
+        "network":"@/network"
       }
     }
-  }
+  },
+  lintOnSave :false, //关闭eslint
 }
