@@ -29,8 +29,8 @@
   display: flex;
   text-align: center;
   margin-top: 10px;
-  // border-bottom: 8px solid #f0f0f0;
-  box-shadow: 0px 8px 0px 0px rgba(100, 100, 100, 0.2);
+  border-bottom: 8px solid #f0f0f0;
+  // box-shadow: 0px 8px 0px 0px rgba(100, 100, 100, 0.2);
   .recommendItem{
     flex: 1;
     margin: 0 auto;

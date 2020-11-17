@@ -20,10 +20,11 @@ export default {
 #app{
   width: 100%;
   height: 100%;
-  
 }
-.home-nav{
+
+/* .home-nav{
   background-color: var(--color-tint);
-  color:var(--color-background)
-}
+  color:var(--color-background);
+  z-index: 9;
+} */
 </style>

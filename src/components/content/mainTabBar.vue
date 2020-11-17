@@ -1,6 +1,6 @@
 <template>
   <div>
-    <tabbar>
+    <tabbar class="tabbarItem">
         <tabbarItem :path="'/home'" :activeStyle="{ 'font-weight': 600}">
           <img slot='item-icon' src="~assets/images/tabbarimg/home.svg" alt="">
           <img slot='item-icon-active' src="~assets/images/tabbarimg/home_select.svg" alt="">
