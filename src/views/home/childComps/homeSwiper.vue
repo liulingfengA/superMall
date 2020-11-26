@@ -3,7 +3,7 @@
     <Swiper>
       <SwiperItem v-for="item in banners" :key="item.backgurnd">
         <a href="/">
-          <img :src="item.image" alt="">
+          <img :src="item.image" alt="" @load="imgload">
         </a>
       </SwiperItem>
     </Swiper>
@@ -22,6 +22,20 @@ import {Swiper, SwiperItem} from "components/common/swiper"
         default:()=>{
           return []
         }
+      }
+    },
+    data() {
+      return{
+        isLoad:false,
+      }
+    },
+    methods: {
+      imgload(){
+        if(!this.isLoad){
+          this.$emit('swiperImgLoad')
+          this.isLoad = true
+        }
+        
       }
     }
   }

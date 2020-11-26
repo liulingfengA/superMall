@@ -14,7 +14,9 @@
 </style>
 <body>
   <div class="wrapper">
+    
     <ul class='content'>
+      <button class="btn">按钮</button>
       <li>liebao1</li>
       <li>liebao2</li>
       <li>liebao3</li>
@@ -120,9 +122,29 @@
 </body>
 <script src="./core.min.js"></script>
 <script>
-  setTimeout(()=>{
-    const bScroll = new BScroll(document.querySelector('.wrapper'),{})
-  },1000)
+  //默认情况下 BScroll不能实时监听滚动位置
+  const bScroll = new BScroll(document.querySelector('.wrapper'),{
+    probeType:3,// 是否实时监听滚动位置 默认是 /0 不侦测实时位置 /1 不侦测实时位置 /2 在手指滚动的时候侦测,但是手指离开后的惯性滚动不侦测 , /3 侦测所有滚动
+    click:true,
+    pullUpLoad:true,//是否开启上拉加载跟多(实际上就是是否监听pullingUp)
+
+  })
+
+
+  bScroll.on('scroll',(position)=>{
+    // console.log(position)
+  })
+  // 只能做一次上拉加载更多 ,需要用finishPullUp做下一次上拉加载更多
+  bScroll.on('pullingUp', function(){
+    console.log('111')
+    //发送网络请求 
+
+    // 等数据请求完成,并展示出来的之后
+    bScroll.finishPullUp()
+  })
+  document.querySelector('.btn').addEventListener('click',()=>{
+    console.log('111')
+  })
   
 </script>
 </html>

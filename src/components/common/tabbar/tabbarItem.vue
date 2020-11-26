@@ -27,7 +27,6 @@
     },
     computed:{
       isActive(){
-        console.log(this.$route.path.indexOf(this.path) !== -1)
         return this.$route.path.indexOf(this.path) !== -1;
       },
       activeType(){

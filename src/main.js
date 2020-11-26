@@ -3,12 +3,15 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './assets/css/base.css'
+
 // import axios from 'axios'
 // import { Button ,Row ,Col ,Swipe,SwipeItem,Lazyload} from 'vant'
 
 // Vue.use(Button).use(Row).use(Col).use(Swipe).use(SwipeItem).use(Lazyload)
 
-// Vue.config.productionTip = false
+Vue.config.productionTip = false
+
+Vue.prototype.$bus = new Vue()
 
 new Vue({
   router,

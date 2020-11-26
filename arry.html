@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组练习</title>
+</head>
+<body>
+  
+</body>
+<script>
+let arr =['a','b','c','d']
+let newArray =[]
+for(let i=0;i<arr.length;i++){
+    newArray[i]=arr[i]
+}
+console.log(newArray) 
+
+
+let arr2 = [1,2,2,3,3,4]
+let newArray2 =[]
+for(let i=0;i<arr2.length;i++){
+  // if(arr2[i] !== arr2[i+1]){
+  //   newArray2[i] = arr2[i]
+  // }
+    if(newArray2.indexOf(arr2[i]) == -1){
+      newArray2[i] = arr2[i]
+      // console.log(newArray2[i])
+      // console.log(arr2[i])
+    } 
+  console.log( newArray2.indexOf(arr2[i]) == -1)
+  
+}
+// for(let i = arr2.length;i >= 0;i--){
+//   console.log(arr2[i])  
+//   for(let j = 0 ; j<arr2.length;j++){
+//     newArray2[j] = arr2[i]
+//     console.log(newArray2)
+//   }
+// }
+// var seat={}
+//  console.log(seat(3,2,4,9,5))
+var num = Math.floor(Math.random()*1000+1)
+console.log((1-1001)+1001)
+console.log(num)
+function myBrowser() {
+    var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+    var isOpera = userAgent.indexOf("Opera") > -1; //判断是否Opera浏览器
+    var isIE = userAgent.indexOf("compatible") > -1
+            && userAgent.indexOf("MSIE") > -1 && !isOpera; //判断是否IE浏览器
+    var isEdge = userAgent.indexOf("Edge") > -1; //判断是否IE的Edge浏览器
+    var isFF = userAgent.indexOf("Firefox") > -1; //判断是否Firefox浏览器
+    var isSafari = userAgent.indexOf("Safari") > -1
+            && userAgent.indexOf("Chrome") == -1; //判断是否Safari浏览器
+    var isChrome = userAgent.indexOf("Chrome") > -1
+            && userAgent.indexOf("Safari") > -1; //判断Chrome浏览器
+
+    if (isIE) {
+        var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+        reIE.test(userAgent);
+        var fIEVersion = parseFloat(RegExp["$1"]);
+        if (fIEVersion == 7) {
+            return "IE7";
+        } else if (fIEVersion == 8) {
+            return "IE8";
+        } else if (fIEVersion == 9) {
+            return "IE9";
+        } else if (fIEVersion == 10) {
+            return "IE10";
+        } else if (fIEVersion == 11) {
+            return "IE11";
+        } else {
+            return "0";
+        }//IE版本过低
+        return "IE";
+    }
+    if (isOpera) {
+        return "Opera";
+    }
+    if (isEdge) {
+        return "Edge";
+    }
+    if (isFF) {
+        return "FF";
+    }
+    if (isSafari) {
+        return "Safari";
+    }
+    if (isChrome) {
+        return "Chrome";
+    }
+    
+}
+console.log(myBrowser())
+</script>  
+</html>

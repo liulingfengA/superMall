@@ -10,21 +10,61 @@
 </body>
 <script>  
 // 必须传入可迭代对象 , 也可以理解成可遍历对象 就是一个数组
-Promise.all([
-  new Promise((resolve,reject)=>{
+// Promise.all([
+//   new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//       resolve('结果1')
+//     },2000)
+//   }),
+//   new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//       resolve('结果2')
+//     },1000)
+//   })
+// ]).then(results =>{
+//   console.log(results)
+//   console.log(results[0])
+// })
+
+let cc = Promise.all([
+  new Promise((resolve, reject) =>{
     setTimeout(()=>{
       resolve('结果1')
-    },2000)
+    },3000)
   }),
-  new Promise((resolve,reject)=>{
+  new Promise((resolve, reject) =>{
     setTimeout(()=>{
       resolve('结果2')
+    },2000)
+  }),
+  new Promise((resolve, reject) =>{
+    setTimeout(()=>{
+      resolve('结果3')
     },1000)
   })
 ]).then(results =>{
-  console.log(results)
-  console.log(results[0])
-})
 
+  var  a=typeof results[0],
+      b=Object.prototype.toString.call(results[1]),
+      c= results[2].constructor
+
+      console.log(a,b,c)
+  if(c === String){
+    console.log(222)
+  }
+  if(b === "[object String]"){
+    console.log(333)
+  }
+  
+})
+console.log(cc)
+function seaty() {
+  return Array.prototype.slice.call(arguments).sort((a,b)=>{
+    return a - b;
+  })
+}
+  
+
+console.log(seaty(3,6,4,1,9))
 </script>
 </html>

@@ -7,7 +7,7 @@ export function request(config) {
   //1. 创建axios实例
   const instance = axios.create({
     baseURL:'http://152.136.185.210:8000/api/w6',//远程接口
-    timeout:5000
+    timeout:10000
   })
 
   //2.axios拦截器
