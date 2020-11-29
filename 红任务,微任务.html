@@ -43,5 +43,26 @@ setTimeout(function() {
         console.log('12')
     })
 })
+var fn = function(x){
+    return x*x;
+}
+console.log(fn(3),111)
+var f = new Function("x","y","return x+y")
+console.log(f(1,2),"2222")
+// var data =  {'未完成':5, '已完成':8, '待确认':4, '已取消':6};
+var data = {a: 1, b: 2, c: 3}
+console.log(Object.keys(data))
+console.log(Object.values(data))
+let arrObj=[...Object.keys(data),...Object.values(data)]
+console.log(arrObj)
+
+
+var add =function (a){
+    let add1 = function(b){
+        return a + b
+    }
+    return add1
+}
+console.log(add(1)(2),33333)
 </script>
 </html>

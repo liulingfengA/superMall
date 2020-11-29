@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>this指向</title>
+</head>
+<body>
+  
+</body>
+<script>
+ // 一层作用域链时，this指的该对象
+var name = '卡卡';
+var cat = {
+  name:'有鱼',
+  eat:function(){
+    console.log(this.name);//有鱼
+  }
+}
+cat.eat();
+
+//多层作用域链时，this指的是距离方法最近的一层对象
+var name = '卡卡';
+var cat = {
+  name:'有鱼',
+  eat1:{
+    name:'年年',
+    eat2:function(){
+      console.log(this.name);//年年
+    }
+  }
+}
+cat.eat1.eat2();
+
+//这个是因为经过赋值操作时，并未发起函数调用，eat3()这个才是真正的调用，而发起这个调用的是根对象window，所以this指的就是window，this.name=卡卡
+var eat3 = cat.eat1.eat2;
+eat3(); // 卡卡
+
+var name = '卡卡';
+function Cat(){
+  this.name = '有鱼';
+  this.type = '英短蓝猫';
+}
+var cat1 = new Cat();
+console.log(cat1);// 实例化新对象 Cat {name: "有鱼", type: "英短蓝猫"}
+console.log(cat1.name);// 有鱼
+
+
+//apply和call调用时，this指向参数中的对象
+var name = '有鱼';
+function eat(){
+  console.log(this.name);
+}
+var cat = {
+  name:'年年',
+}
+var dog = {
+  name:'高飞',
+}
+ 
+eat.call(cat);// 年年
+eat.call(dog);// 高飞
+
+
+//匿名函数调用，指向的是全局对象
+var name = '卡卡';
+var cat = {
+  name:'有鱼',
+  eat:(function(){
+    console.log(this.name);//卡卡
+  })()
+}
+cat.eat;
+
+
+//匿名函数调用方式，常用的有三种方法：
+//①先用()包起来,然后再后面跟 (参数) 
+(function(data){
+  console.log(data);
+})("222");
+ 
+//②先后面跟(参数),然后再()包起来
+(function(data){
+  console.log(data);
+}("333"));
+
+//③正常函数格式，前面加 !
+!function(data){
+  console.log(data);
+}("444");
+
+
+function Fn() {
+    var num = 10;
+    this.x =100;
+    this.getx = function () {
+        console.log(x)
+    }
+}
+var f1 = new Fn;
+console.log(f1.num);//undefined
+console.log(num)
+console.log(f1.getx)
+
+
+</script>
+</html>
