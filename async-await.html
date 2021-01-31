@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    async function log() {
+      return 'hello world'
+    }
+    log().then((resolve) => {
+      console.log(resolve)
+    })
+    console.log('后面的先执行')
+
+    function promiseFun(num) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(2 * num)
+        }, 1000)
+      })
+    }
+
+    async function add() {
+      let num1 = await promiseFun(20)
+      let num2 = await promiseFun(30)
+      let num3 = await promiseFun(40)
+      console.log(num1 + num2 + num3);
+    }
+    add()
+
+
+
+    async function speak(num) {
+      return setTimeout(() => {
+        let num4 = num * 2
+        console.log('num', num);
+        console.log('num4', num4);
+        return num4
+
+      }, 1000)
+    }
+
+    async function msg() {
+      let asy = await speak(5)
+      console.log('asy', asy)
+    }
+    msg()
+    console.log(speak());
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  const obj1 = {
+    a: 1,
+    b: 2
+  }
+  obj2 = {
+    a: 0
+  }
+  const obj = Object.assign(
+    obj1, obj2)
+  console.log(obj);
+  setObj = function (obj) {
+    obj.a = 3
+  }
+  console.log(obj);
+  setObj(obj)
+
+
+
+  const str = 'hello'
+
+  setStr = function (str) {
+    str = 'world'
+  }
+  setObj(str)
+  console.log(str);
+
+  var test = /^[(a-z|A-Z|0-9)]{8-12}/
+
+</script>
+
+</html>

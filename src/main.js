@@ -8,6 +8,10 @@ import './assets/css/base.css'
 // import { Button ,Row ,Col ,Swipe,SwipeItem,Lazyload} from 'vant'
 
 // Vue.use(Button).use(Row).use(Col).use(Swipe).use(SwipeItem).use(Lazyload)
+import ECharts from 'vue-echarts' // 在 webpack 环境下指向 components/ECharts.vue
+Vue.component('chart', ECharts)
+
+
 
 Vue.config.productionTip = false
 
